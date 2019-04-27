@@ -5,8 +5,8 @@ Ademas el sistema mostrara informacion relevante como los ingresos por mes, tota
 
 # Instalación
 
-1. ´git clone https://github.com/samuelmg/gdocs.git´
-2. ´cd gdocs´
+1. ´git clone  https://github.com/jorgecarloscontr/strgym.git´
+2. ´cd strgym´
 3. ´composer install´
 4. ´cp .env.example .env´
 5. ´php artisan key:generate´
