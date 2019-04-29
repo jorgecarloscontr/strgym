@@ -12,8 +12,26 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('inicio');
 });
 Route::get('/inicio',function () {
     return view('inicio');
+});
+
+Route::get('/usuario_insert',function(){
+    return view('clienteInsert');
+});
+
+Route::get('/listado_cliente',function(){
+    return view('clienteShow');
+});
+
+Route::get('/empleado_show',function(){
+    return view('empleadosShow');
+});
+Route::get('/empleado_insert',function(){
+    return view('empleadoInsert');
+});
+Route::get('/membresias',function(){
+    return view('membresiasShow');
 });
