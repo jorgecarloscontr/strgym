@@ -35,3 +35,6 @@ Route::get('/empleado_insert',function(){
 Route::get('/membresias',function(){
     return view('membresiasShow');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
