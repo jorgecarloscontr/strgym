@@ -8,11 +8,19 @@
         </ul>-->
         </li>
         <li><a><i class="fa fa-bar-chart"></i> Estadisticas <span class="fa "></span></a></li>
-        <li><a><i class="fa fa-edit"></i> Membresias <span class="fa"></span></a></li>
+        <li><a><i class="fa fa-edit"></i> Membresias, Vistas <span class="fa"></span></a></li>
+        <li><a><i class="fa fa-shopping-cart"></i>Ventas <span class="fa"></span></a></li>
         <li><a><i class="fa fa-group"></i> Clientes <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-                <li><a href="#">ingresar</a></li>
+                <li><a href="{{ route('login') }}">ingresar</a></li>
                 <li><a href="#">Listado</a></li>
+            </ul>
+        </li>
+        <li><a><i class="fa fa-suitcase"></i>Rutinas <span class="fa fa-chevron-down"></span></a>
+            <ul class="nav child_menu">
+                <li><a href="#">Insert</a></li>
+                <li><a href="#">Mostrar</a></li>
+                <li><a href="#">Editar</a></li>
             </ul>
         </li>
         <li><a><i class="fa fa-archive"></i> Inventario <span class="fa fa-chevron-down"></span></a>
@@ -24,13 +32,6 @@
             </ul>
         </li>
         <li><a><i class="fa fa-user"></i>Empleados <span class="fa fa-chevron-down"></span></a>
-            <ul class="nav child_menu">
-                <li><a href="#">Insert</a></li>
-                <li><a href="#">Mostrar</a></li>
-                <li><a href="#">Editar</a></li>
-            </ul>
-        </li>
-        <li><a><i class="fa fa-suitcase"></i>Rutinas <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
                 <li><a href="#">Insert</a></li>
                 <li><a href="#">Mostrar</a></li>

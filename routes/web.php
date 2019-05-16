@@ -14,17 +14,8 @@
 Route::get('/', function () {
     return view('inicio');
 });
-Route::get('/inicio',function () {
-    return view('inicio');
-});
 
-Route::get('/usuario_insert',function(){
-    return view('clienteInsert');
-});
-
-Route::get('/listado_cliente',function(){
-    return view('clienteShow');
-});
+Route::resource('clientes','ClienteController');
 
 Route::get('/empleado_show',function(){
     return view('empleadosShow');
@@ -34,6 +25,9 @@ Route::get('/empleado_insert',function(){
 });
 Route::get('/membresias',function(){
     return view('membresiasShow');
+});
+Route::get('/ventas',function(){
+    return view('puntoVenta');
 });
 Auth::routes();
 

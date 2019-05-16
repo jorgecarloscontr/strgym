@@ -30,14 +30,21 @@
     <link href="{{asset('/vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
     <!-- Datatables -->
     <link href="{{asset('/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css')}}" rel="stylesheet">
+    <!-- jQuery custom content scroller -->
+    <link href="{{asset('/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css')}}" rel="stylesheet"/>
+
     <!-- Custom Theme Style -->
     <link href="{{asset('/build/css/custom.min.css')}}" rel="stylesheet">
   </head>
 
-  <body class="nav-md footer_fixed">
+  <body class="nav-md">
     <div class="container body">
       <div class="main_container">
-        <div class="col-md-3 left_col">
+        <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
               <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>STRGYM</span></a>
@@ -48,7 +55,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <!--<img src="images/img.jpg" alt="..." class="img-circle profile_img">-->
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
@@ -69,7 +76,9 @@
         @include('layouts.topNavigation')
         <!-- page content -->
         <div class="right_col" role="main">
+          <div class="">
             @yield('content')
+          </div>
         </div>
         <!-- footer content -->
         @include('layouts.footerContent')
@@ -101,11 +110,20 @@
     <script src="{{asset('/build/js/custom.min.js')}}"></script>
     <!-- Datatables -->
     <script src="{{asset('/vendors/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-
+    <script src="{{asset('/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+    <script src="{{asset('/vendors/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
+    <script src="{{asset('/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js')}}"></script>
+    <script src="{{asset('/vendors/datatables.net-buttons/js/buttons.flash.min.js')}}"></script>
+    <script src="{{asset('/vendors/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+    <script src="{{asset('/vendors/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+    <script src="{{asset('/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js')}}"></script>
+    <script src="{{asset('/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js')}}"></script>
+    <script src="{{asset('/vendors/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{asset('/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js')}}"></script>
+    <script src="{{asset('/vendors/datatables.net-scroller/js/dataTables.scroller.min.js')}}"></script>
     <script>
       $(document).ready(function(){
           $('#tablaDinamica').DataTable({
-            responsive: true,
             "language": {
 
               "lengthMenu": "Mostrar _MENU_ registros por pagina",
