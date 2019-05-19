@@ -64,9 +64,9 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Cliente $cliente)
     {
-        //
+        return view('clientes.clientesForm',compact('cliente'));
     }
 
     /**
@@ -76,9 +76,15 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Cliente $cliente)
     {
-        //
+        $cliente->nombre = $request->nombre;
+        $cliente->apellido = $request->apellido;
+        $cliente->sexo = $request->sexo;
+        $cliente->nacimiento = $request->nacimiento;
+        $cliente->telefono = $request->telefono;
+        $cliente->save();
+        return redirect()->route('clientes.index');
     }
 
     /**
@@ -87,8 +93,9 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Cliente $cliente)
     {
-        //
+        $cliente->delete();
+        return redirect()->route('clientes.index');
     }
 }

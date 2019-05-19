@@ -125,15 +125,10 @@
       $(document).ready(function(){
           $('#tablaDinamica').DataTable({
             "language": {
-
               "lengthMenu": "Mostrar _MENU_ registros por pagina",
-
               "zeroRecords": "No se encontraron registros",
-
               "info": "P&aacutegina _PAGE_ of _PAGES_",
-
               "infoEmpty": "No hay registros",
-
               "sSearch": "Buscar:"
             }
           });

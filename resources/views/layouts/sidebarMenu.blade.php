@@ -12,8 +12,8 @@
         <li><a><i class="fa fa-shopping-cart"></i>Ventas <span class="fa"></span></a></li>
         <li><a><i class="fa fa-group"></i> Clientes <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-                <li><a href="{{ route('login') }}">ingresar</a></li>
-                <li><a href="#">Listado</a></li>
+                <li><a href="{{ route('clientes.create') }}">ingresar</a></li>
+                <li><a href="{{ route('clientes.index') }}">Listado</a></li>
             </ul>
         </li>
         <li><a><i class="fa fa-suitcase"></i>Rutinas <span class="fa fa-chevron-down"></span></a>

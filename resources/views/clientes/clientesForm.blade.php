@@ -2,7 +2,11 @@
 @section('content')
     <div class="page-title">
         <div class="title_left">
-        <h3>Registrar Cliente</h3>
+        @if(isset($cliente))
+            <h3>Actualizar informacion del cliente {{$cliente->id}}</h3>
+        @else
+            <h3>Registrar Cliente</h3>
+        @endif
         </div>
     </div>
     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -11,32 +15,39 @@
                 <h2>Datos personales</h2>
                 <div class="clearfix"></div>
             </div>
+            @if(isset($cliente))
+                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action ="{{route('clientes.update',$cliente->id) }}" method="POST">
+                <input type="hidden" name="_method" value="PATCH">
+            @else
+                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action ="{{route('clientes.store')}}" method="POST">
+            @endif
             <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action ="{{route('clientes.store')}}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Nombre <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="nombre" name="nombre" required="required" class="form-control col-md-7 col-xs-12">
+                        <input type="text" id="nombre" name="nombre" required="required" class="form-control col-md-7 col-xs-12" value="{{(isset($cliente) ? $cliente->nombre : '')}}">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="apellido">Apellido <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="apellido" name="apellido" required="required" class="form-control col-md-7 col-xs-12">
+                        <input type="text" id="apellido" name="apellido" required="required" class="form-control col-md-7 col-xs-12" value ="{{ $cliente->apellido ?? '' }}">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Sexo <span class="required">*</span></label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
                         <div id="sexo" class="btn-group" data-toggle="buttons">
-                            <label class="btn btn-primary">
-                                <input type="radio" name="sexo" value="m" checked>Masculino
-                            </label>
-                            <label class="btn btn-default">
-                                <input type="radio" name="sexo" value="f"> Femenino
-                            </label>
+                            @if(isset($cliente) && $cliente->sexo==='f')
+                                <label class="btn btn-default"><input type="radio" name="sexo" value="m">Hombre</label>
+                                <label class="btn btn-primary"><input type="radio" name="sexo" value="f" checked>Mujer</label>
+                            @else   
+                                <label class="btn btn-primary"><input type="radio" name="sexo" value="m" checked>Hombre</label>
+                                <label class="btn btn-default"><input type="radio" name="sexo" value="f"> Mujer</label>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -55,14 +66,14 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Telefono <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="telefono" class="form-control col-md-7 col-xs-12" required="required" type="number" name="telefono">
+                        <input id="telefono" class="form-control col-md-7 col-xs-12" required="required" type="number" name="telefono" value="{{$cliente->telefono ?? ''}}">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Nacimiento <span class="required">*</span> </label>
                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                        <input type="date" class="form-control has-feedback-left" name="nacimiento">
+                        <input type="date" class="form-control has-feedback-left" name="nacimiento" value="{{ $cliente->nacimiento ?? ''}}">
                         <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true" ></span>
                     </div>
                 </div>

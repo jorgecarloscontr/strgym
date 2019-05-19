@@ -28,13 +28,17 @@
                 <tr>
                     <td>{{$cliente->id}}</td>
                     <td>{{$cliente->nombre." ".$cliente->apellido}}</td>
-                    <td>{{(strcmp($cliente->sexo,"m")===0) ? "Masculino": "Femenino"}}</td>
+                    <td>{{(strcmp($cliente->sexo,"m")===0) ? "Hombre": "Mujer"}}</td>
                     <td>{{$cliente->nacimiento}}</td>
                     <td>{{$cliente->telefono}}</td>
                     <td>
                         <button class="btn btn-info btn-sm" type="button">info</button>
-                        <button class="btn btn-danger btn-sm" type="button">eliminar</button>
-                        <button class="btn btn-warning btn-sm" type="button">editar</button>
+                        <form action="{{ route('clientes.destroy',$cliente->id) }}" method="POST" style="display:inline-table;">
+                            <input type="hidden" name="_method" value="DELETE">
+                            @csrf
+                            <button class="btn btn-danger btn-sm" type="submit">eliminar</button>
+                        </form>
+                        <a class="btn btn-warning btn-sm" href="{{ route('clientes.edit',$cliente->id) }}">editar</a>
                     </td>
                 </tr>
             @endforeach
