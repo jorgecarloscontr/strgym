@@ -35,6 +35,12 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre' => 'required|min:3|max:50',
+            'telefono' => 'regex:/^(\d{8,10})$/i',
+            'nacimiento' => 'before:5 years ago|after:100 years ago',
+        ]);
+
         $cliente = new Cliente();
         $cliente->nombre = $request->nombre;
         $cliente->apellido = $request->apellido;

@@ -15,6 +15,16 @@
                 <h2>Datos personales</h2>
                 <div class="clearfix"></div>
             </div>
+            @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
             @if(isset($cliente))
                 <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action ="{{route('clientes.update',$cliente->id) }}" method="POST">
                 <input type="hidden" name="_method" value="PATCH">
@@ -27,14 +37,14 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Nombre <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="nombre" name="nombre" required="required" class="form-control col-md-7 col-xs-12" value="{{(isset($cliente) ? $cliente->nombre : '')}}">
+                        <input type="text" id="nombre" name="nombre" required="required" class="form-control col-md-7 col-xs-12" value="{{isset($cliente) ? $cliente->nombre : ''}}{{ old('nombre')}}">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="apellido">Apellido <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input type="text" id="apellido" name="apellido" required="required" class="form-control col-md-7 col-xs-12" value ="{{ $cliente->apellido ?? '' }}">
+                        <input type="text" id="apellido" name="apellido" required="required" class="form-control col-md-7 col-xs-12" value ="{{ $cliente->apellido ?? '' }}{{ old('apellido')}}">
                     </div>
                 </div>
                 <div class="form-group">
@@ -66,14 +76,14 @@
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Telefono <span class="required">*</span>
                     </label>
                     <div class="col-md-6 col-sm-6 col-xs-12">
-                        <input id="telefono" class="form-control col-md-7 col-xs-12" required="required" type="number" name="telefono" value="{{$cliente->telefono ?? ''}}">
+                        <input id="telefono" class="form-control col-md-7 col-xs-12" required="required" type="number" name="telefono" value="{{$cliente->telefono ?? ''}}{{ old('telefono')}}">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Nacimiento <span class="required">*</span> </label>
                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                        <input type="date" class="form-control has-feedback-left" name="nacimiento" value="{{ $cliente->nacimiento ?? ''}}">
+                        <input type="date" class="form-control has-feedback-left" name="nacimiento" value="{{ $cliente->nacimiento ?? ''}}{{old('nacimiento')}}" required="required">
                         <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true" ></span>
                     </div>
                 </div>
