@@ -31,7 +31,6 @@
             @else
                 <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action ="{{route('clientes.store')}}" method="POST">
             @endif
-            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action ="{{route('clientes.store')}}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre">Nombre <span class="required">*</span>
@@ -87,6 +86,7 @@
                         <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true" ></span>
                     </div>
                 </div>
+                <div class="ln_solid"></div>
                 <div class="form-group">
                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3" style="margin-top:20px;">
                         <button class="btn btn-primary" type="reset">Reset</button>
@@ -96,7 +96,8 @@
             </form>        
         </div>      
     </div>
-
-
-    
+@endsection
+@section('library')
+     <!--parsley-->
+     <script src="{{asset('/vendors/parsleyjs/dist/parsley.min.js')}}"></script>
 @endsection

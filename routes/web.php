@@ -11,11 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('inicio');
-});
+Route::get('/','AsistenciaController@index');
 
 Route::resource('clientes','ClienteController');
+Route::resource('asistencias','AsistenciaController');
 
 Route::get('/empleado_show',function(){
     return view('empleadosShow');

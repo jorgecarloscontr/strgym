@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cliente extends Model
 {
-    public $timestamps = false;
+    protected $guarded = ['id'];
+
+    public function asistencias()
+    {
+        return $this->hasMany('App\Asistencia');
+    }
 }

@@ -9,61 +9,51 @@
   <div class="row">
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
-      <form class="form-inline">
+      <form class="form-inline" action ="{{route('asistencias.store')}}" method="POST">
+        @csrf
         <div class="form-group">
-        <label for="ex3">Codigo</label>
-        <input type="text" id="ex3" class="form-control" placeholder=" ">
+          <label for="ex3">Codigo</label>
+          <input type="text" id="ex3" name="codigo" class="form-control" placeholder=" ">
         </div>
-        <button type="submit" class="btn btn-primary">Guardar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
       </form>
       <br>
       <!--tabla de asistencias-->
-      <table id="tablaDinamica" class="table table-striped table-bordered">
+      <div class="col-xs-12">
+      <table id="tablaDinamica" class="table table-striped table-bordered " style="width:100%">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
+            <th>Codigo</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Telefono</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Tiger Nixon</td>
-            <td>System Architect</td>
-            <td>Edinburgh</td>
-            <td>61</td>
-            <td>2011/04/25</td>
-            <td>$320,800</td>
-          </tr>
-          <tr>
-            <td>Garrett Winters</td>
-            <td>Accountant</td>
-            <td>Tokyo</td>
-            <td>63</td>
-            <td>2011/07/25</td>
-            <td>$170,750</td>
-          </tr>
-          <tr>
-            <td>Ashton Cox</td>
-            <td>Junior Technical Author</td>
-            <td>San Francisco</td>
-            <td>66</td>
-            <td>2009/01/12</td>
-            <td>$86,000</td>
-          </tr>
-          <tr>
-            <td>Cedric Kelly</td>
-            <td>Senior Javascript Developer</td>
-            <td>Edinburgh</td>
-            <td>22</td>
-            <td>2012/03/29</td>
-            <td>$433,060</td>
-          </tr>
+          @foreach($asistencias as $asistencia)
+            <tr>
+            <?php $bandera=true; ?>
+            @for($i=0;$i< count($clientes) && $bandera;$i++)
+              @if($clientes[$i]->id===$asistencia->cliente_id)
+              <?php
+                $date = new DateTime($asistencias[$i]->creado);
+              ?>
+                <td>{{$clientes[$i]->id}}</td>
+                <td>{{$clientes[$i]->nombre}}</td>
+                <td>{{$clientes[$i]->apellido}}</td>
+                <td>{{$date->format('Y-m-d')}}</td>
+                <td>{{$date->format('H:i:s')}}</td>
+                <td>{{$clientes[$i]->telefono}}</td>
+                <?php $bandera=false; ?>
+              @endif
+            @endfor
+            </tr>
+          @endforeach
         </tbody>
       </table>
+      </div>
     </div>      
   </div>
 </div>

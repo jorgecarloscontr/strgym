@@ -2,11 +2,7 @@
     <div class="menu_section">
     <h3>General</h3>
     <ul class="nav side-menu">
-        <li><a><i class="fa fa-home"></i> Home <span class="fa"></span></a>
-        <!--<ul class="nav child_menu">
-            <li><a href="index.html">Dashboard</a></li>
-        </ul>-->
-        </li>
+        <li><a  href="{{ route('asistencias.index') }}"><i class="fa fa-home"></i> Home <span class="fa"></span></a></li>
         <li><a><i class="fa fa-bar-chart"></i> Estadisticas <span class="fa "></span></a></li>
         <li><a><i class="fa fa-edit"></i> Membresias, Vistas <span class="fa"></span></a></li>
         <li><a><i class="fa fa-shopping-cart"></i>Ventas <span class="fa"></span></a></li>
