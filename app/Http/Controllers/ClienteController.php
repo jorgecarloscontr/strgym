@@ -37,7 +37,7 @@ class ClienteController extends Controller
     {
         $request->validate([
             'nombre' => 'required|min:3|max:50',
-            'telefono' => 'regex:/^(\d{8,10})$/i',
+            'telefono' => 'regex:/^(\d{8,15})$/i',
             'nacimiento' => 'before:5 years ago|after:100 years ago',
         ]);
 
