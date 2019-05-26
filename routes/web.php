@@ -15,6 +15,12 @@ Route::get('/','AsistenciaController@index');
 
 Route::resource('clientes','ClienteController');
 Route::resource('asistencias','AsistenciaController');
+Route::resource('ejercicios','EjercicioController');
+Route::get('rutinas/create-rutina/{cliente}','RutinaController@create_rutina')->name('rutinas.create_rutina');
+Route::get('rutinas/edit-rutina/{cliente}','RutinaController@edit_rutina')->name('rutinas.edit_rutina');
+Route::post('rutinas/insertar-ejercicio/{rutina}','RutinaController@insertar_ejercicio')->name('rutinas.insertar_ejercicio');
+Route::post('rutinas/elimina-ejercicio/{rutina}','RutinaController@elimina_ejercicio')->name('rutinas.elimina_ejercicio');
+Route::resource('rutinas','RutinaController');
 
 Route::get('/empleado_show',function(){
     return view('empleadosShow');
@@ -28,6 +34,7 @@ Route::get('/membresias',function(){
 Route::get('/ventas',function(){
     return view('puntoVenta');
 });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -28,12 +28,13 @@
    <!--  <link href="{{asset('/vendors/starrr/dist/starrr.css')}}" rel="stylesheet">-->
     <!-- bootstrap-daterangepicker -->
     <link href="{{asset('/vendors/bootstrap-daterangepicker/daterangepicker.css')}}" rel="stylesheet">
-    <!-- Datatables -->
+    <!-- Datatables-->
     <link href="{{asset('/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css')}}" rel="stylesheet">
+    <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <!-- jQuery custom content scroller -->
     <link href="{{asset('/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css')}}" rel="stylesheet"/>
 
@@ -126,11 +127,11 @@
       $(document).ready(function(){
           $('#tablaDinamica').DataTable({
             "language": {
-              "lengthMenu": "Mostrar _MENU_ registros por pagina",
+              "lengthMenu": "Mostrar _MENU_ registros",
               "zeroRecords": "No se encontraron registros",
               "info": "P&aacutegina _PAGE_ of _PAGES_",
               "infoEmpty": "No hay registros",
-              "sSearch": "Buscar:"
+              "sSearch": "Buscar: "
             }
           });
       });
