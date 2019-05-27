@@ -41,4 +41,8 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Membresia');
     }
+    public function vetnas()
+    {
+        return $this->hasMany('App\Venta');
+    }
 }

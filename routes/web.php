@@ -24,11 +24,13 @@ Route::resource('rutinas','RutinaController');
 Route::get('membresias/show-membresias-cliente/{cliente}','MembresiaController@show_membresias_cliente')->name('membresias.show_membresias_cliente');
 Route::resource('membresias','MembresiaController');
 Route::resource('empleados','EmpleadoController');
+Route::resource('productos','ProductoController');
+Route::get('ventas/create-venta/{cliente}','VentaController@create_venta')->name('ventas.create_venta');
+Route::get('ventas/edit-venta/{venta}','VentaController@edit_venta')->name('ventas.edit_venta');
+Route::post('ventas/elimina-producto/{venta}','VentaController@elimina_producto')->name('ventas.elimina_producto');
+Route::post('ventas/insertar-producto/{venta}','VentaController@insertar_producto')->name('ventas.insertar_producto');
 
-Route::get('/ventas',function(){
-    return view('puntoVenta');
-});
-
+Route::resource('ventas','VentaController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
