@@ -72,6 +72,10 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente)
     {
+        if (\Gate::denies('editar-documento')) {
+            return redirect()->back()
+                ->with(['mensaje' => 'Solo administradores']);
+        }
         return view('clientes.clientesForm',compact('cliente'));
     }
 

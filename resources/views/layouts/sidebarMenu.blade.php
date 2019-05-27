@@ -15,14 +15,18 @@
         </li>
         <li><a><i class="fa fa-archive"></i> Inventario <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
+                @can('create')
                 <li><a href="{{ route('productos.create') }}">ingresar producto</a></li>
+                @endcan
                 <li><a href="{{ route('productos.index') }}">listado de productos</a></li>
 
             </ul>
         </li>
         <li><a><i class="fa fa-user"></i>Empleados <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
+                @can('edita_empleado')
                 <li><a href="{{ route('empleados.create') }}">ingresar empleado</a></li>
+                @endcan
                 <li><a href="{{ route('empleados.index') }}">listado de empleados</a></li>
             </ul>
         </li>
