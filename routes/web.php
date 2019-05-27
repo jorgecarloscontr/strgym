@@ -21,6 +21,8 @@ Route::get('rutinas/edit-rutina/{cliente}','RutinaController@edit_rutina')->name
 Route::post('rutinas/insertar-ejercicio/{rutina}','RutinaController@insertar_ejercicio')->name('rutinas.insertar_ejercicio');
 Route::post('rutinas/elimina-ejercicio/{rutina}','RutinaController@elimina_ejercicio')->name('rutinas.elimina_ejercicio');
 Route::resource('rutinas','RutinaController');
+Route::get('membresias/show-membresias-cliente/{cliente}','MembresiaController@show_membresias_cliente')->name('membresias.show_membresias_cliente');
+Route::resource('membresias','MembresiaController');
 
 Route::get('/empleado_show',function(){
     return view('empleadosShow');
@@ -28,9 +30,7 @@ Route::get('/empleado_show',function(){
 Route::get('/empleado_insert',function(){
     return view('empleadoInsert');
 });
-Route::get('/membresias',function(){
-    return view('membresiasShow');
-});
+
 Route::get('/ventas',function(){
     return view('puntoVenta');
 });

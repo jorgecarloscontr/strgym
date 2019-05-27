@@ -12,6 +12,10 @@ class Cliente extends Model
     {
         return $this->hasMany('App\Asistencia');
     }
+    public function membresias()
+    {
+        return $this->hasMany('App\Membresia');
+    }
     public function rutina()
     {
         return $this->hasOne(Rutina::class);
