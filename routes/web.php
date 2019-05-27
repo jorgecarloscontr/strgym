@@ -23,13 +23,7 @@ Route::post('rutinas/elimina-ejercicio/{rutina}','RutinaController@elimina_ejerc
 Route::resource('rutinas','RutinaController');
 Route::get('membresias/show-membresias-cliente/{cliente}','MembresiaController@show_membresias_cliente')->name('membresias.show_membresias_cliente');
 Route::resource('membresias','MembresiaController');
-
-Route::get('/empleado_show',function(){
-    return view('empleadosShow');
-});
-Route::get('/empleado_insert',function(){
-    return view('empleadoInsert');
-});
+Route::resource('empleados','EmpleadoController');
 
 Route::get('/ventas',function(){
     return view('puntoVenta');
