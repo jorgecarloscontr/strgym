@@ -12,4 +12,8 @@ class Producto extends Model
     {
         return $this->belongsToMany(Venta::class)->withPivot('fecha');
     }
+    public function setNombreAttribute($nombre)
+    {
+        $this->attributes['nombre'] = strtoupper($nombre);
+    }
 }

@@ -24,4 +24,8 @@ class Cliente extends Model
     {
         return $this->hasOne(Rutina::class);
     }
+    public function getNombreCompletoAttribute()
+    {
+        return $this->nombre . ' ' . $this->apellido;
+    }
 }

@@ -24,8 +24,7 @@
         <thead>
           <tr>
             <th>Codigo</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
+            <th>Nombre y apellido</th>
             <th>Fecha</th>
             <th>Hora</th>
             <th>Telefono</th>
@@ -41,8 +40,7 @@
                 $date = new DateTime($asistencias[$i]->creado);
               ?>
                 <td>{{$clientes[$i]->id}}</td>
-                <td>{{$clientes[$i]->nombre}}</td>
-                <td>{{$clientes[$i]->apellido}}</td>
+                <td>{{$clientes[$i]->nombre_completo}}</td>
                 <td>{{$date->format('Y-m-d')}}</td>
                 <td>{{$date->format('H:i:s')}}</td>
                 <td>{{$clientes[$i]->telefono}}</td>
