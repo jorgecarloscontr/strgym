@@ -18,6 +18,12 @@ class EmpleadoController extends Controller
         return view('empleados.empleadosIndex',compact('empleados'));
     }
 
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index');
+        $this->middleware('admin')->only('create', 'store', 'edit', 'update', 'destroy');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
