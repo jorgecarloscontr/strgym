@@ -14,7 +14,13 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        $productos = producto::all();
+        if (!empty($request->filtro_nombre)) {
+            $productos = Producto::where('nombre', 'like', '%'.$request->filtro_nombre.'%')
+                ->orderBy('nombre')
+                ->paginate(10);
+        } else {
+            $productos = Producto::orderBy('nombre')->paginate(10);
+        }
         return view('productos.productosIndex',compact('productos'));
     }
 

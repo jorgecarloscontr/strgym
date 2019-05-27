@@ -24,6 +24,7 @@ Route::resource('rutinas','RutinaController')->middleware('auth');
 Route::get('membresias/show-membresias-cliente/{cliente}','MembresiaController@show_membresias_cliente')->name('membresias.show_membresias_cliente')->middleware('auth');
 Route::resource('membresias','MembresiaController')->middleware('auth');
 Route::resource('empleados','EmpleadoController')->middleware('auth');
+Route::match(['GET', 'POST'], '/productos/listado', 'ProductoController@index')->name('Productos.index');
 Route::resource('productos','ProductoController')->middleware('auth');
 Route::get('ventas/create-venta/{cliente}','VentaController@create_venta')->name('ventas.create_venta')->middleware('auth');
 Route::get('ventas/edit-venta/{venta}','VentaController@edit_venta')->name('ventas.edit_venta')->middleware('auth');

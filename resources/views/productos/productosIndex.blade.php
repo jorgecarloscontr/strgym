@@ -12,7 +12,13 @@
         <div class="clearfix"></div>
     </div>
     <!--tabla de usuarios-->
-    <table id="tablaDinamica" class="table table-striped table-bordered">
+    <form action="{{ route('productos.index') }}" method="POST">
+        @csrf
+        <label for="filtro_nombre">Buscar Funcionario</label>
+        <input type="text" name="filtro_nombre">
+        <input type="submit" value="Filtrar">
+    </form>
+    <table  class="table table-striped table-bordered">
         <thead>
             <tr>
                 <th>Codigo</th>
@@ -44,6 +50,7 @@
             @endforeach
         </tbody>
     </table>
+    {{$productos->links()}}
     </div>
 </div>
 

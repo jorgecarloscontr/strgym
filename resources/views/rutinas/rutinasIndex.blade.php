@@ -31,7 +31,6 @@
                     <td>{{isset($cliente->rutina->id) ? $contiene='contiene':'no contiene' }}</td>
                     @if(isset($cliente->rutina->id))
                         <td><a class="btn btn-warning btn-sm" href="{{ route('rutinas.edit_rutina',$cliente->id) }}">Modificar</a>
-                        <button class="btn btn-info btn-sm" type="button">Mostrar</button></td>
                     @else
                         <td><a class="btn btn-success btn-sm" href="{{ route('rutinas.create_rutina',$cliente->id) }}">Asignar</a></td>
                     @endif
