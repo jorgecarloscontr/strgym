@@ -78,6 +78,7 @@
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
+            @include('partials.mensajes')
             @yield('content')
           </div>
         </div>

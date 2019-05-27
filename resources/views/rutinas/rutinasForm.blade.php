@@ -29,9 +29,9 @@
                             <td>{{$ejercicio->nombre}}</td>
                             <td>{{$ejercicio->grupo}}</td>
                             <td>
-                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Agregar</button>
+                            <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal{{$ejercicio->id}}">Agregar</button>
                             <!-- Modal -->
-                            <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal fade" id="myModal{{$ejercicio->id}}" role="dialog">
                             <div class="modal-dialog">
                             
                                 <!-- Modal content-->
@@ -50,23 +50,29 @@
                                         @csrf
                                         <input type="hidden" name="cliente_id" value="{{$cliente->id}}">
                                         <input type="hidden" name="ejercicio_id" value="{{$ejercicio->id}}">
-                                        <input type="hidden" name="ejercicio_nombre" value="{{$ejercicio->nombre}}">
                                         <div class="col-xs-12 form-group" style="margin-bottom: 10px;">
-                                            <label for="series"  class="control-label col-xs-4">Series</label>
+                                            <label class="control-label col-xs-4">Nombre</label>
                                             <div class="col-xs-8">
-                                                <input type="number" id="series" name="series" required="required" class="form-control" value="1">
+                                                <input type="text" name="ejercicio_nombre" class="form-control" value="{{$ejercicio->nombre}}">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-12 form-group" style="margin-bottom: 10px;">
+                                            <label class="control-label col-xs-4">Series</label>
+                                            <div class="col-xs-8">
+                                                <input type="number" name="series" required="required" class="form-control" value="1">
                                             </div>
                                         </div>
                                         <div class="col-xs-12 form-group" style="margin-bottom: 10px;">
-                                            <label for="repeticiones"  class="control-label col-xs-4">repeticiones</label>
+                                            <label class="control-label col-xs-4">repeticiones</label>
                                             <div class="col-xs-8">
-                                                <input type="number" id="repeticiones" name="repeticiones" required="required" class="form-control" value="1">
+                                                <input type="number" name="repeticiones" required="required" class="form-control" value="1">
                                             </div>
                                         </div>
                                         <div class="col-xs-12 form-group" style="margin-bottom: 10px;">
-                                            <label for="dias"  class="control-label col-xs-4">Dias</label>
+                                            <label class="control-label col-xs-4">Dias</label>
                                             <div class="col-xs-8">
-                                                <select name="dias[]" id="dias" multiple class="select2_multiple form-control" style="width: 58%;">
+                                                <select name="dias[]" multiple class="select2_multiple form-control" required="required" style="width: 58%;">
                                                     <option value="L">Lunes</option>
                                                     <option value="M">Martes</option>
                                                     <option value="I">Miercoles</option>
@@ -76,7 +82,8 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Guardar</button>
+                                        <button type="submit" class="btn btn-primary ">Guardar</button>
+
                                         </form>
                                     </div>
                                     <div class="modal-footer">
@@ -130,19 +137,19 @@
                                                 <button type="submit" class="btn btn-danger"> <i class="fa fa-close"></i></button>              
                                             </form>
                                         </span>
-                                        <input type="text" class="form-control" id="producto1" value="{{$ejercicio->nombre}}">
+                                        <input type="text" class="form-control" id="producto1" disabled value="{{$ejercicio->nombre}}">
                                         </div>
                                     </div>
                                     <div class="col-xs-3 col-sm-3 form-group form-horizontal" style="padding:0;">
                                         <label for="series"  class="control-label col-xs-4">Series</label>
                                         <div class="col-xs-8">
-                                            <input type="number" id="series" name="series" required="required" class="form-control" value="{{$ejercicio->pivot->series}}">
+                                            <input type="number" id="series" name="series" required="required" class="form-control" disabled value="{{$ejercicio->pivot->series}}">
                                         </div>
                                     </div>
                                     <div class="col-xs-5 col-sm-3 form-group form-horizontal" style="padding:0;">
                                         <label for="series"  class="control-label col-xs-5">repeticion</label>
                                         <div class="col-xs-7">
-                                            <input type="number" id="series" name="series" required="required" class="form-control" value="{{$ejercicio->pivot->repeticiones}}">
+                                            <input type="number" id="series" name="series" required="required" class="form-control" disabled value="{{$ejercicio->pivot->repeticiones}}">
                                         </div>
                                     </div>
                                 </div>
