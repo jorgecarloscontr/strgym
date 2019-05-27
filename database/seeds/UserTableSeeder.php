@@ -17,7 +17,7 @@ class UserTableSeeder extends Seeder
         $admin->email = 'admin@prueba.com';
         $admin->rol = 'admin';
         $admin->email_verified_at = now();
-        $admin->password = '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm';
+        $admin->password = '$2y$10$Gh2XtGSHKj1R10fPvCfvj.nhTHpmcQ.lMEmxfTHWRu6cZSjKb/rZS';
         $admin->remember_token = Str::random(10);
         $admin->save();
         factory(App\User::class, 15)->create();

@@ -24,7 +24,7 @@
         </li>
         <li><a><i class="fa fa-user"></i>Empleados <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-                @can('edita_empleado')
+                @can('editar_empleado')
                 <li><a href="{{ route('empleados.create') }}">ingresar empleado</a></li>
                 @endcan
                 <li><a href="{{ route('empleados.index') }}">listado de empleados</a></li>

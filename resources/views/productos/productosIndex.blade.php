@@ -8,13 +8,13 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
     <div class="x_title">
-        <h2>Tabla de usuarios</h2>
+        <h2>Tabla de productos</h2>
         <div class="clearfix"></div>
     </div>
     <!--tabla de usuarios-->
     <form action="{{ route('productos.index') }}" method="POST">
         @csrf
-        <label for="filtro_nombre">Buscar Funcionario</label>
+        <label for="filtro_nombre">Buscar Producto</label>
         <input type="text" name="filtro_nombre">
         <input type="submit" value="Filtrar">
     </form>
