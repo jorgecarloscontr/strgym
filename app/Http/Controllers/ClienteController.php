@@ -84,13 +84,22 @@ class ClienteController extends Controller
      */
     public function update(Request $request,Cliente $cliente)
     {
+        $request->validate([
+            'nombre' => 'required|min:3|max:50',
+            'telefono' => 'regex:/^(\d{8,15})$/i',
+            'nacimiento' => 'before:5 years ago|after:100 years ago',
+        ]);
+
         $cliente->nombre = $request->nombre;
         $cliente->apellido = $request->apellido;
         $cliente->sexo = $request->sexo;
         $cliente->nacimiento = $request->nacimiento;
         $cliente->telefono = $request->telefono;
         $cliente->save();
-        return redirect()->route('clientes.index');
+        return redirect()->route('clientes.index')->with([
+            'mensaje' => 'Actualizado con exito',
+            'alert-class' => 'alert-warning',
+        ]);
     }
 
     /**

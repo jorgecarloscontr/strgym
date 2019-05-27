@@ -15,15 +15,8 @@
                 <h2>Datos personales</h2>
                 <div class="clearfix"></div>
             </div>
-            @if($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <li>{{$error}}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+            @include('partials.formErrors')
+
 
             @if(isset($cliente))
                 <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action ="{{route('clientes.update',$cliente->id) }}" method="POST">
