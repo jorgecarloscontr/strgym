@@ -13,7 +13,7 @@
 
 Route::get('/','AsistenciaController@index');
 
-Route::resource('clientes','ClienteController');
+Route::resource('clientes','ClienteController')->middleware('auth');
 Route::resource('asistencias','AsistenciaController');
 Route::resource('ejercicios','EjercicioController');
 Route::get('rutinas/create-rutina/{cliente}','RutinaController@create_rutina')->name('rutinas.create_rutina');
